@@ -1,6 +1,10 @@
+# Build artefacts
 /target
 /result
 /result-*
+
+# Private recruitment funnel (deployer DMs, response timestamps, payment proofs)
+docs/RECRUITMENT_TRACKER.md
 Cargo.lock
 *.swp
 *.swo
