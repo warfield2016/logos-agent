@@ -1,0 +1,43 @@
+{
+  "name": "agent_module",
+  "version": "0.1.0",
+  "type": "core",
+  "category": "ai",
+  "interface": "universal",
+  "description": "Autonomous AI agent module with native Logos wallet, storage, and messaging access. A2A-compatible coordination layer over Logos Messaging.",
+  "main": "agent_module_plugin",
+  "codegen": {
+    "impl_header": "agent_module_plugin.h"
+  },
+  "dependencies": [
+    "wallet_module",
+    "storage_module",
+    "delivery_module"
+  ],
+  "include": [
+    "libagent_core.so",
+    "libagent_core.dylib",
+    "libagent_core.dll"
+  ],
+  "nix": {
+    "external_libraries": [
+      { "name": "agent_core", "build_command": "cargo build --release -p agent-core" },
+      { "name": "wallet_ffi" }
+    ],
+    "cmake": {
+      "extra_include_dirs": ["target/release/include"]
+    }
+  },
+  "capabilities": [
+    "autonomous_execution",
+    "lez_wallet",
+    "encrypted_owner_channel",
+    "a2a_coordination",
+    "pluggable_skills",
+    "pluggable_inference"
+  ],
+  "spec": {
+    "a2a_binding": "https://logos.co/spec/a2a-bindings/logos-messaging/0.1",
+    "payment_extension": "https://logos.co/spec/a2a-extensions/lez-payment/0.1"
+  }
+}

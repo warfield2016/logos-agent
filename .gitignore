@@ -1,0 +1,14 @@
+/target
+/result
+/result-*
+Cargo.lock
+*.swp
+*.swo
+.DS_Store
+.envrc
+.direnv/
+*.lgx
+node_modules/
+__pycache__/
+.vscode/
+.idea/

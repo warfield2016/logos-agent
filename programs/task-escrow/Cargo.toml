@@ -1,0 +1,12 @@
+[package]
+name = "task-escrow-program"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "LEZ program: atomic-on-completion escrow for A2A task payments. Used by the LEZ-payment extension when settlement = escrow."
+
+[lib]
+crate-type = ["lib"]
+
+[dependencies]
+serde = { workspace = true }

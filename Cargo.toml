@@ -1,0 +1,61 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/agent-core",
+    "crates/agent-skill-sdk",
+    "crates/agent-cli",
+    "programs/agent-registry",
+    "programs/task-escrow",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+authors = ["LP-0008 contributors"]
+repository = "https://github.com/warfield2016/logos-agent"
+rust-version = "1.78"
+
+[workspace.dependencies]
+agent-skill-sdk = { path = "crates/agent-skill-sdk", version = "0.1.0" }
+
+# Async
+tokio = { version = "1.40", features = ["full"] }
+async-trait = "0.1"
+futures = "0.3"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+prost = "0.13"
+prost-types = "0.13"
+
+# Crypto / signing
+ed25519-dalek = { version = "2.1", features = ["serde", "rand_core"] }
+blake3 = "1.5"
+hex = "0.4"
+rand = "0.8"
+
+# Errors / logging
+thiserror = "1.0"
+anyhow = "1.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# CLI
+clap = { version = "4.5", features = ["derive", "env"] }
+
+# Time / ids
+uuid = { version = "1.10", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+strip = true
+
+[profile.release-with-debug]
+inherits = "release"
+strip = false
+debug = true

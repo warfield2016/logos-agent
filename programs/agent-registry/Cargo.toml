@@ -1,0 +1,14 @@
+[package]
+name = "agent-registry-program"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "LEZ program: on-chain registry of agents with owner attestation. Used to prove the 5-outside-team-deployer success criterion."
+
+[lib]
+crate-type = ["lib"]
+
+[dependencies]
+# Week-3: wire to nssa_core + risc0 zkvm guest dependencies once the LEZ
+# framework template is integrated (`logos-co/scaffold templates/lez-framework/`).
+serde = { workspace = true }
